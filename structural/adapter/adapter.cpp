@@ -1,36 +1,36 @@
 #include <iostream>
 
-class SocketInterface
+class SocketAbstract
 {
     public:
-        SocketInterface() {}
-        ~SocketInterface() {}
+        SocketAbstract() {}
+        ~SocketAbstract() {}
         virtual void americanSocket() = 0;
 };
 
-class Socket : public SocketInterface
+class Socket : public SocketAbstract
 {
     public:
         Socket() {}
         ~Socket() {}
-        void    americanSocket()
+        void americanSocket()
         {
             std::cout << "This is a socket of american type\n";
         }
 };
 
-class AdapterInterface
+class AdapterAbstract
 {
     public:
-        AdapterInterface() {}
-        ~AdapterInterface() {}
+        AdapterAbstract() {}
+        ~AdapterAbstract() {}
         virtual void europeanSocket() = 0;
 };
 
-class Adapter : public AdapterInterface
+class Adapter : public AdapterAbstract
 {
     public:
-        Adapter(SocketInterface* obj)
+        Adapter(SocketAbstract* obj)
         {
             mSocketPointer = obj;
         }
@@ -40,13 +40,13 @@ class Adapter : public AdapterInterface
             mSocketPointer->americanSocket();
         }
     private:
-        SocketInterface* mSocketPointer;
+        SocketAbstract* mSocketPointer;
 };
 
 int main()
 {
     Socket* socketPtr = new Socket();
-    AdapterInterface* adapter = new Adapter(socketPtr);
+    AdapterAbstract* adapter = new Adapter(socketPtr);
     adapter->europeanSocket();
 
     return 0;

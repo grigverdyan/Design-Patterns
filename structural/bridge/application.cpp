@@ -28,7 +28,9 @@ class MobileApplication : public Application
 			std::cout << "Application will be on Mobile" << std::endl;
 		}
 		void design()
-		{ imp->forMobile(); }
+		{
+			imp->forMobile();
+		}
 };
 
 class DesktopApplication : public Application
@@ -40,7 +42,9 @@ class DesktopApplication : public Application
 		std::cout << "Application will be on Desktop" << std::endl;
 	}
 	void design()
-	{ imp->forMobile(); }
+	{ 
+		imp->forMobile();
+	}
 };
 
 class LinuxImplementer : public ApplicationImplementer

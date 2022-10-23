@@ -1,7 +1,7 @@
 NAME			= thread_safe_singleton
 MKDIR			= mkdir -p
 CXX				= g++
-CXXFLAGS		= -Wall -Wextra -Werror --std=c++17 -g -ggdb3
+CXXFLAGS		= -Wall -Wextra -Werror --std=c++17 -g -ggdb3 
 SRCS			= $(wildcard *.cpp)
 OBJS_DIR		= objs
 OBJS			= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))

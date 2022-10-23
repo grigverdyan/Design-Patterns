@@ -5,11 +5,14 @@
 class Singleton
 {
     public:
-        static Singleton*   getInstance();
-        void    setValue(int value) { 
+		~Singleton();
+        static Singleton* getInstance();
+        void setValue(int value)
+		{ 
             mValue = value; 
         }
-        int     getValue(){
+        int getValue()
+		{
             return mValue;
         }
 
@@ -22,32 +25,34 @@ class Singleton
         Singleton& operator=(const Singleton&) = delete;
 };
 
-
 std::mutex Singleton::mMutex;
 
-Singleton* Singleton::getInstance() {
+Singleton *Singleton::mInstance = nullptr;
+
+Singleton* Singleton::getInstance()
+{
     std::lock_guard<std::mutex> lock(mMutex);
-    if (mInstance == nullptr) {
+    if (mInstance == nullptr)
+	{
         mInstance = new Singleton();
     }
-    mMutex.unlock();
-    return mInstance;
+	return mInstance;
 }
 
-void first() {
+void first()
+{
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     Singleton *p = Singleton::getInstance();
     p->setValue(13);
     std::cout << "Value = " << p->getValue() << std::endl;
-
 }
 
-void second() {
+void second()
+{
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     Singleton *p = Singleton::getInstance();
     p->setValue(69);
     std::cout << "Value = " << p->getValue() << std::endl;
-
 }
 
 int main()

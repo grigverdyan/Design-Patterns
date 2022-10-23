@@ -16,6 +16,7 @@ class Circle : public Shape
 			std::cout << "Circle" << std::endl; 
 		}
 };
+
 class Square : public Shape
 {
 	public:
@@ -43,7 +44,8 @@ class Group : public Shape {
 		std::vector<Shape*>      _objects;
 };
 
-int main() {
+int main()
+{
     Group group("main");
     group.addShape(new Circle);
     Group subgroup("sub");

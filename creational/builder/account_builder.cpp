@@ -1,24 +1,24 @@
 #include "account_builder.hpp"
 
-AccountBuilder& AccountBuilder::loginIs(std::string login)
+AccountBuilder& AccountBuilder::loginIs(const std::string& login)
 {
 	account._login = login;
 	return *this;
 }
 
-AccountBuilder& AccountBuilder::usName(std::string name)
+AccountBuilder& AccountBuilder::usName(const std::string& name)
 {
 	account._name = name;
 	return *this;
 }
 
-AccountBuilder& AccountBuilder::usMiddleName(std::string middleName)
+AccountBuilder& AccountBuilder::usMiddleName(const std::string& middleName)
 {
 	account._middleName = middleName;
 	return *this;
 }
 
-AccountBuilder& AccountBuilder::usSurname(std::string surname)
+AccountBuilder& AccountBuilder::usSurname(const std::string& surname)
 {
 	account._surname = surname;
 	return *this;
@@ -30,13 +30,13 @@ AccountBuilder& AccountBuilder::isOld(unsigned int age)
 	return *this;
 }
 
-AccountBuilder& AccountBuilder::livesCountry(std::string country)
+AccountBuilder& AccountBuilder::livesCountry(const std::string& country)
 {
 	account._country = country;
 	return *this;
 }
 
-AccountBuilder& AccountBuilder::livesCity(std::string city)
+AccountBuilder& AccountBuilder::livesCity(const std::string& city)
 {
 	account._city = city;
 	return *this;

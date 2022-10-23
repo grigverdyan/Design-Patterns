@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-AccountBuilder Account::create(std::string email, std::string password)
+AccountBuilder Account::create(const std::string& email, const std::string& password)
 {
     return AccountBuilder(email, password);
 }
@@ -23,4 +23,3 @@ std::ostream& operator<<(std::ostream& os, Account& obj)
               << "CITY: " << obj._city << std::endl
               << "AGE: " << obj._age << std::endl;
 }
-

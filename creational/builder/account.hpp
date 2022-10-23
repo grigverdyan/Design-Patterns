@@ -10,7 +10,7 @@ class Account
     public:
         friend class AccountBuilder;
         friend std::ostream& operator<<(std::ostream& os, Account& obj);
-        static AccountBuilder create(std::string email, std::string password);
+        static AccountBuilder create(const std::string& email, const std::string& password);
 
     private:
         /*
@@ -30,11 +30,8 @@ class Account
         std::string     _city;
         unsigned int    _age;
 
-        Account(std::string email, std::string password) 
+        Account(const std::string& email, const std::string& password) 
             : _email(email), _password(password) {}
 };
 
 #endif  /* ACCOUNT_H */
-
-
-

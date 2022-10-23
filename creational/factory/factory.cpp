@@ -5,7 +5,8 @@ struct Button
 	virtual void paint() = 0;
 };
 
-struct GUIFactory {
+struct GUIFactory 
+{
 	virtual Button *createButton(std::string) = 0;
 };
 

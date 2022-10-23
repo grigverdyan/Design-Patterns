@@ -4,10 +4,12 @@ class Singleton
 {
     public:
         static Singleton*   getInstance();
-        void    setValue(int value) { 
+        void setValue(int value) 
+		{ 
             mValue = value; 
         }
-        int     getValue(){
+        int getValue()
+		{
             return mValue;
         }
 
@@ -21,8 +23,10 @@ class Singleton
 
 Singleton* Singleton::mInstance = nullptr;
 
-Singleton* Singleton::getInstance() {
-    if (mInstance == nullptr) {
+Singleton* Singleton::getInstance()
+{
+    if (mInstance == nullptr) 
+	{
         mInstance = new Singleton();
     }
     return mInstance;

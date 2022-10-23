@@ -6,18 +6,20 @@
 class AccountBuilder
 {
     public:
-        AccountBuilder(std::string login, std::string password)
+        AccountBuilder(const std::string& login, const std::string& password)
             : account(login, password) {}
 
         operator Account() const
-        { return std::move(account); }
-		AccountBuilder& loginIs(std::string login);
-		AccountBuilder& usName(std::string name);
-		AccountBuilder& usMiddleName(std::string middleName);
-		AccountBuilder& usSurname(std::string surname);
+        {
+			return std::move(account);
+		}
+		AccountBuilder& loginIs(const std::string& login);
+		AccountBuilder& usName(const std::string& name);
+		AccountBuilder& usMiddleName(const std::string& middleName);
+		AccountBuilder& usSurname(const std::string& surname);
 		AccountBuilder& isOld(unsigned int age);
-		AccountBuilder& livesCountry(std::string country);
-		AccountBuilder& livesCity(std::string city);
+		AccountBuilder& livesCountry(const std::string& country);
+		AccountBuilder& livesCity(const std::string& city);
     private:
         Account account;
 };
